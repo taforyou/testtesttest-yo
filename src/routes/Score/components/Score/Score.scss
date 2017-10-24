@@ -1,0 +1,14 @@
+@import 'base';
+.container {
+  @extend .flex-column-center;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.max5percen{
+  max-width: 5%;
+}
+.section {
+  @extend .flex-column-center;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
