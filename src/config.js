@@ -9,10 +9,10 @@ export const env = 'development'
 
 // Config for firebase
 export const firebase = {
-  apiKey: 'AIzaSyC1di2aZt1QdarKyX4qrOhyB2ZbgGSqHoU',
-  authDomain: 'mytestproject-5f61b.firebaseapp.com',
-  databaseURL: 'https://mytestproject-5f61b.firebaseio.com',
-  storageBucket: 'mytestproject-5f61b.appspot.com'
+  apiKey: 'AIzaSyBkR_H9FWaTpQRzH9F0cY_Zyqc56LBFdj0',
+  authDomain: 'rookiescore-cycling.firebaseapp.com',
+  databaseURL: 'https://rookiescore-cycling.firebaseio.com',
+  storageBucket: 'rookiescore-cycling.appspot.com'
 }
 
 // Config for react-redux-firebase
