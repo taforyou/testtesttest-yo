@@ -23,7 +23,7 @@ export const createRoutes = (store) => ({
     ProjectsRoute(store),
     Stats(store),
     Score(store),
-    TestRoute(store),
+    //TestRoute(store),
 
 
     /* Place all Routes above here so NotFoundRoute can act as a 404 page */

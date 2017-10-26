@@ -102,9 +102,9 @@ export default class Navbar extends Component {
         anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
         animated={false}
       >
-        
+
         <MenuItem
-          primaryText='My stats'
+          primaryText='My Stats'
           onTouchTap={this.handleLogout}
         />
 
@@ -114,7 +114,7 @@ export default class Navbar extends Component {
         />
 
         <MenuItem
-          primaryText='Sign out'
+          primaryText='Sign Out'
           onTouchTap={this.handleLogout}
         />
       </IconMenu>
