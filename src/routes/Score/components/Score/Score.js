@@ -64,120 +64,154 @@ class Score extends React.Component {
   renderDesktop() {
     return (
       <div className={classes.container}>
-        <div style={{ width: '100%', background: '#fff', padding: '0 0 10px 10px', position: 'fixed' }}>
-          <Toolbar style={{
-            background: '#fff', justifyContent: 'space-between'
-          }}>
-            <ToolbarGroup firstChild={true}>
-              <SelectField
-                floatingLabelText="Genders"
-                value={this.state.gender}
-                onChange={this.handleGenderChange}
-              >
-                <MenuItem value={null} primaryText="" />
-                <MenuItem value="m" primaryText="Male" />
-                <MenuItem value="f" primaryText="Female" />
-              </SelectField>
-              <SelectField
-                floatingLabelText="Categories"
-                value={this.state.category}
-                onChange={this.handleCategoryChange}
-              >
-                <MenuItem value={null} primaryText="" />
-                <MenuItem value="F15" primaryText="F15" />
-                <MenuItem value="F19" primaryText="F19" />
-                <MenuItem value="F30" primaryText="F30" />
-                <MenuItem value="F40" primaryText="F40" />
-                <MenuItem value="F50" primaryText="F50" />
-                <MenuItem value="F60" primaryText="F60" />
-                <MenuItem value="M15" primaryText="M15" />
-                <MenuItem value="M19" primaryText="M19" />
-                <MenuItem value="M30" primaryText="M30" />
-                <MenuItem value="M40" primaryText="M40" />
-                <MenuItem value="M50" primaryText="M50" />
-                <MenuItem value="M60" primaryText="M60" />
-                <MenuItem value="VIP" primaryText="VIP" />
-              </SelectField>
-              <ToolbarSeparator />
-              <IconMenu
-                iconButtonElement={<IconButton><ContentFilter /></IconButton>}
-                onChange={this.handleChangeSortby}
-                value={this.state.sortby}
-              >
-                <MenuItem value="1" primaryText="Sort by race number" />
-                <MenuItem value="2" primaryText="Sort by name" />
-                <MenuItem value="3" primaryText="Sort by fastest lap" />
-                <MenuItem value="4" primaryText="Sort by category" />
-                <MenuItem value="5" primaryText="Sort by net time" />
-              </IconMenu>
 
-            </ToolbarGroup>
-            <ToolbarGroup>
-              <RaisedButton label="Apply" primary={true} />
-            </ToolbarGroup>
-          </Toolbar>
-
-
-        </div>
-        <Paper zDepth={1} style={{
-          marginTop: 79,
-          overflowX: 'auto'
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          width:'100%'
         }}>
-          <Table
-            fixedHeader={true}
-            selectable={false}
-            fixedHeader={true}
-            style={{
-              width: 1280
-            }}
-          >
-            <TableHeader
-              displaySelectAll={false}
-              adjustForCheckbox={false}
-              enableSelectAll={false}
-            >
-              <TableRow>
-                <TableHeaderColumn style={stylesJS.max5percen}>Pos.</TableHeaderColumn>
-                <TableHeaderColumn style={stylesJS.max5percen}>ID No.</TableHeaderColumn>
-                <TableHeaderColumn style={stylesJS.max5percen}>ID No.</TableHeaderColumn>
-                <TableHeaderColumn style={stylesJS.max10percen}>Name</TableHeaderColumn>
-                <TableHeaderColumn style={stylesJS.max5percen}>Net Time</TableHeaderColumn>
-                <TableHeaderColumn style={stylesJS.max5percen}>Category</TableHeaderColumn>
+          <Paper zDepth={1} style={{
+            overflow: 'hidden',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: 10
+          }}>
+            <Toolbar style={{
+              background: '#fff', justifyContent: 'space-between'
+            }}>
+              <ToolbarGroup firstChild={true}>
+                <SelectField
+                  floatingLabelText="งานแข่งขัน"
+                  value={this.state.challenge}
+                  onChange={this.handleChallengeChange}
+                >
+                  <MenuItem value={null} primaryText="" />
+                  <MenuItem value="a" primaryText="งาน A" />
+                  <MenuItem value="b" primaryText="งาน B" />
+                </SelectField>
+              </ToolbarGroup>
+              <ToolbarGroup>
+                <SelectField
+                  floatingLabelText="Genders"
+                  value={this.state.gender}
+                  onChange={this.handleGenderChange}
+                >
+                  <MenuItem value={null} primaryText="" />
+                  <MenuItem value="m" primaryText="Male" />
+                  <MenuItem value="f" primaryText="Female" />
+                </SelectField>
+                <SelectField
+                  floatingLabelText="Categories"
+                  value={this.state.category}
+                  onChange={this.handleCategoryChange}
+                >
+                  <MenuItem value={null} primaryText="" />
+                  <MenuItem value="F15" primaryText="F15" />
+                  <MenuItem value="F19" primaryText="F19" />
+                  <MenuItem value="F30" primaryText="F30" />
+                  <MenuItem value="F40" primaryText="F40" />
+                  <MenuItem value="F50" primaryText="F50" />
+                  <MenuItem value="F60" primaryText="F60" />
+                  <MenuItem value="M15" primaryText="M15" />
+                  <MenuItem value="M19" primaryText="M19" />
+                  <MenuItem value="M30" primaryText="M30" />
+                  <MenuItem value="M40" primaryText="M40" />
+                  <MenuItem value="M50" primaryText="M50" />
+                  <MenuItem value="M60" primaryText="M60" />
+                  <MenuItem value="VIP" primaryText="VIP" />
+                </SelectField>
+                <ToolbarSeparator />
+                <IconMenu
+                  iconButtonElement={<IconButton><ContentFilter /></IconButton>}
+                  onChange={this.handleChangeSortby}
+                  value={this.state.sortby}
+                >
+                  <MenuItem value="1" primaryText="Sort by race number" />
+                  <MenuItem value="2" primaryText="Sort by name" />
+                  <MenuItem value="3" primaryText="Sort by fastest lap" />
+                  <MenuItem value="4" primaryText="Sort by category" />
+                  <MenuItem value="5" primaryText="Sort by net time" />
+                </IconMenu>
 
-                <TableHeaderColumn style={stylesJS.max5percen}>Cat Pos.</TableHeaderColumn>
-                <TableHeaderColumn style={stylesJS.max5percen}>Gen Pos.</TableHeaderColumn>
-                <TableHeaderColumn style={stylesJS.max5percen}>Wave</TableHeaderColumn>
-                <TableHeaderColumn style={stylesJS.max5percen}>Start</TableHeaderColumn>
-                <TableHeaderColumn style={stylesJS.max5percen}>CP1</TableHeaderColumn>
-                <TableHeaderColumn style={stylesJS.max5percen}>Finish</TableHeaderColumn>
-              </TableRow>
-            </TableHeader>
-            <TableBody
-              displayRowCheckbox={false}
-            >
-              {tabdat.map((row, index) => (
-                <TableRow key={index}>
-                  <TableRowColumn style={stylesJS.max5percen}>{row.pos}</TableRowColumn>
-                  <TableRowColumn style={stylesJS.max5percen}>{row.id_no}</TableRowColumn>
-                  <TableRowColumn style={stylesJS.max5percen}>{row.id_name_no}</TableRowColumn>
-                  <TableRowColumn style={stylesJS.max10percen}>{row.name}</TableRowColumn>
-                  <TableRowColumn style={stylesJS.max5percen}>{row.net_time}</TableRowColumn>
-                  <TableRowColumn style={stylesJS.max5percen}>{row.category}</TableRowColumn>
-                  <TableRowColumn style={stylesJS.max5percen}>{row.cat_pos}</TableRowColumn>
-                  <TableRowColumn style={stylesJS.max5percen}>{row.gen_pos}</TableRowColumn>
-                  <TableRowColumn style={stylesJS.max5percen}>{row.wave}</TableRowColumn>
-                  <TableRowColumn style={stylesJS.max5percen}>{row.start}</TableRowColumn>
-                  <TableRowColumn style={stylesJS.max5percen}>{row.cp1}</TableRowColumn>
-                  <TableRowColumn style={stylesJS.max5percen}>{row.finish}</TableRowColumn>
-                </TableRow>
-              ))}
+              </ToolbarGroup>
+              <ToolbarGroup>
+                <RaisedButton label="Apply" primary={true} />
+              </ToolbarGroup>
+            </Toolbar>
 
-            </TableBody>
-          </Table>
-        </Paper>
+
+          </Paper>
+          <div className={classes.limitdt}>
+            <Paper zDepth={1} style={{
+              marginTop: 10,
+              overflowX: 'auto',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}>
+              <h1 style={stylesJS.textCenter}>งานแข่งขัน Require authenticated</h1>
+            </Paper>
+            <Paper zDepth={1} style={{
+              marginTop: 10,
+              overflowX: 'auto'
+            }}>
+              <Table
+                fixedHeader={true}
+                selectable={false}
+                fixedHeader={true}
+                style={{
+                  width: 1280
+                }}
+              >
+                <TableHeader
+                  displaySelectAll={false}
+                  adjustForCheckbox={false}
+                  enableSelectAll={false}
+                >
+                  <TableRow>
+                    <TableHeaderColumn style={stylesJS.max5percen}>Pos.</TableHeaderColumn>
+                    <TableHeaderColumn style={stylesJS.max5percen}>ID No.</TableHeaderColumn>
+                    <TableHeaderColumn style={stylesJS.max5percen}>ID No.</TableHeaderColumn>
+                    <TableHeaderColumn style={stylesJS.max10percen}>Name</TableHeaderColumn>
+                    <TableHeaderColumn style={stylesJS.max5percen}>Net Time</TableHeaderColumn>
+                    <TableHeaderColumn style={stylesJS.max5percen}>Category</TableHeaderColumn>
+
+                    <TableHeaderColumn style={stylesJS.max5percen}>Cat Pos.</TableHeaderColumn>
+                    <TableHeaderColumn style={stylesJS.max5percen}>Gen Pos.</TableHeaderColumn>
+                    <TableHeaderColumn style={stylesJS.max5percen}>Wave</TableHeaderColumn>
+                    <TableHeaderColumn style={stylesJS.max5percen}>Start</TableHeaderColumn>
+                    <TableHeaderColumn style={stylesJS.max5percen}>CP1</TableHeaderColumn>
+                    <TableHeaderColumn style={stylesJS.max5percen}>Finish</TableHeaderColumn>
+                  </TableRow>
+                </TableHeader>
+                <TableBody
+                  displayRowCheckbox={false}
+                >
+                  {tabdat.map((row, index) => (
+                    <TableRow key={index}>
+                      <TableRowColumn style={stylesJS.max5percen}>{row.pos}</TableRowColumn>
+                      <TableRowColumn style={stylesJS.max5percen}>{row.id_no}</TableRowColumn>
+                      <TableRowColumn style={stylesJS.max5percen}>{row.id_name_no}</TableRowColumn>
+                      <TableRowColumn style={stylesJS.max10percen}>{row.name}</TableRowColumn>
+                      <TableRowColumn style={stylesJS.max5percen}>{row.net_time}</TableRowColumn>
+                      <TableRowColumn style={stylesJS.max5percen}>{row.category}</TableRowColumn>
+                      <TableRowColumn style={stylesJS.max5percen}>{row.cat_pos}</TableRowColumn>
+                      <TableRowColumn style={stylesJS.max5percen}>{row.gen_pos}</TableRowColumn>
+                      <TableRowColumn style={stylesJS.max5percen}>{row.wave}</TableRowColumn>
+                      <TableRowColumn style={stylesJS.max5percen}>{row.start}</TableRowColumn>
+                      <TableRowColumn style={stylesJS.max5percen}>{row.cp1}</TableRowColumn>
+                      <TableRowColumn style={stylesJS.max5percen}>{row.finish}</TableRowColumn>
+                    </TableRow>
+                  ))}
+
+                </TableBody>
+              </Table>
+            </Paper>
+          </div>
+        </div>
       </div>
     );
   }
+
   renderMobile() {
     return (
       <div className={classes.container}>
@@ -301,6 +335,9 @@ const stylesJS = {
     maxWidth: '10%',
     textAlign: 'center',
     padding: 5
+  },
+  textCenter: {
+    textAlign: 'center'
   }
 }
 export default Score;
