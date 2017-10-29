@@ -1,14 +1,45 @@
 @import 'base';
+$break-small: 320px;
+$break-large: 1280px;
+
 .container {
-  @extend .flex-column-center;
-  max-width: 1280px;
+  @extend .flex-row-center;
+  max-width: 100%;
   margin: 0 auto;
+  @media screen and (max-width: $break-large) {
+    max-width: 100%;
+    float: none;
+  }
+}
+.limitdt{
+  max-width: 1280px;
+  margin: 0 auto
+}
+.pane {
+  @extend .flex-column-center;
+  justify-content: space-around;
+  flex-basis: 60%;
+}
+.settings {
+  @extend .flex-row-center;
+  align-items: center;
+  width: 100%;
+}
+.avatar {
+  &Current {
+    width: 100%;
+    max-width: 13rem;
+    height: auto;
+    cursor: pointer;
+  }
+}
+.meta {
+  @extend .flex-column-center;
+  justify-content: center;
+  flex-basis: 60%;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
 }
 .max5percen{
   max-width: 5%;
-}
-.section {
-  @extend .flex-column-center;
-  margin-left: 1rem;
-  margin-right: 1rem;
 }
