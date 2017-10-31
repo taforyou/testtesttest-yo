@@ -13,7 +13,7 @@ export default {
   fontFamily: 'Roboto, sans-serif',
   palette: {
     //primary1Color: blueGrey500,
-    // Header
+    // Header Color
     primary1Color : indigo900,
     primary2Color: blueGrey700,
     primary3Color: blueGrey100,
