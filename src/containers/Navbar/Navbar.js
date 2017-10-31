@@ -124,7 +124,7 @@ export default class Navbar extends Component {
       <AppBar
         title={
           <Link to={authExists ? LIST_PATH : '/'} className={classes.brand}>
-            testtesttest-yo
+            <img src={require('../images/test.png')} />Boardgame Tournament
           </Link>
         }
         showMenuIconButton={false}
