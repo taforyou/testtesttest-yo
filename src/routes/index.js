@@ -4,10 +4,12 @@ import LoginRoute from './Login'
 import SignupRoute from './Signup'
 import ProjectsRoute from './Projects'
 import AccountRoute from './Account'
+import BoardgameRoute from './Boardgame'
 import NotFoundRoute from './NotFound'
 import TestRoute from './TestRoute'
 import Stats from './Stats'
 import Score from './Score'
+
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
@@ -15,16 +17,21 @@ import Score from './Score'
 export const createRoutes = (store) => ({
   path: '/',
   component: CoreLayout,
+  //indexRoute: Boardgame,
   indexRoute: Home,
   childRoutes: [
     AccountRoute(store),
     LoginRoute(store),
     SignupRoute(store),
     ProjectsRoute(store),
-    Stats(store),
-    Score(store),
-    //TestRoute(store),
 
+    // เหมือนอันสุดท้ายมันมองว่าเป็น NotFoundRoute เลย ไม่รู็เพราะอะไร ???
+    // ช่างมันก่อน ก็เดี๋ยวค่อยมาเก็บ
+    TestRoute(store),
+    // ได้แล้ว วิธีการตั้งคือต้องไปตั้ง Constants ใน paths ด้วย
+    Stats(store),
+    BoardgameRoute(store),
+    //Score(store),
 
     /* Place all Routes above here so NotFoundRoute can act as a 404 page */
     NotFoundRoute(store)

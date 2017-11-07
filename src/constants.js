@@ -1,6 +1,8 @@
 export const LIST_PATH = '/projects'
 export const ACCOUNT_PATH = '/account'
 export const STATS = '/stats'
+export const BOARDGAME = '/boardgame'
+export const TEST_ROUTE = '/testroute'
 export const LOGIN_PATH = '/login'
 export const SIGNUP_PATH = '/signup'
 export const ACCOUNT_FORM_NAME = 'account'
@@ -18,7 +20,10 @@ export const paths = {
   list: LIST_PATH,
   account: ACCOUNT_PATH,
   login: LOGIN_PATH,
-  signup: SIGNUP_PATH
+  signup: SIGNUP_PATH,
+  stats: STATS,
+  boardgame : BOARDGAME,
+  testroute : TEST_ROUTE
 }
 
 export default { ...paths, ...formNames }

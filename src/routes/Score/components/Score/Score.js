@@ -148,7 +148,7 @@ class Score extends React.Component {
               justifyContent: 'center',
               alignItems: 'center'
             }}>
-              <h1 style={stylesJS.textCenter}>งานแข่งขัน Require authenticated</h1>
+              <h1 style={stylesJS.textCenter}>งานแข่งขัน Require authenticated 123</h1>
             </Paper>
             <Paper zDepth={1} style={{
               marginTop: 10,

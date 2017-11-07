@@ -1,5 +1,7 @@
+import { TEST_ROUTE as path } from 'constants'
+
 export default () => ({
-  path: '*',
+  path,
   /*  Async getComponent is only invoked when route matches   */
   getComponent (nextState, cb) {
     /*  Webpack - use 'require.ensure' to create a split point

@@ -23,6 +23,8 @@ export const UserIsAuthenticated = UserAuthWrapper({ // eslint-disable-line new-
   predicate: auth => auth !== null,
   redirectAction: newLoc => (dispatch) => {
     browserHistory.replace(newLoc)
+    // เข้า Account แล้ว log ขึ้นเพราะว่า Try to authenticated
+    console.log('User Visited /Account');
     dispatch({
       type: UNAUTHED_REDIRECT,
       payload: { message: 'User is not authenticated.' }
@@ -44,6 +46,8 @@ export const UserIsNotAuthenticated = UserAuthWrapper({ // eslint-disable-line n
   LoadingComponent: LoadingSpinner,
   failureRedirectPath: (state, props) =>
     // redirect to page user was on or to list path
+    // เจอแล้วการ Redirect
+    // ไม่ไปหน้าที่เลือกอยู่ ก็ไปหน้าที่ LIST_PATH
     props.location.query.redirect || LIST_PATH,
   authSelector: ({ firebase }) => pathToJS(firebase, 'auth'),
   authenticatingSelector: ({ firebase }) =>
@@ -52,6 +56,7 @@ export const UserIsNotAuthenticated = UserAuthWrapper({ // eslint-disable-line n
   predicate: auth => auth === null,
   redirectAction: newLoc => (dispatch) => {
     browserHistory.replace(newLoc)
+    console.log('Redirect if account or projects');
     dispatch({ type: AUTHED_REDIRECT })
   }
 })
